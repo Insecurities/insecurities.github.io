@@ -1,57 +1,138 @@
 <html>
-  <div id="pagebod"></div>
+  <!-- thanks to codepen[.]io/josetxu for his CSS skills. -->
   <style>
     @import url("https://fonts.googleapis.com/css?family=Press+Start+2P");
 
     body {
-      background-color: Black;
-      color: green;
+      background: #171717;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       font-family: "Press Start 2P";
-    }
+      height: 100vh;
+      overflow: hidden;
+      white-space: pre;
     }
 
-    #t {
-      width: 300px;
+    div.coding {
+      text-transform: uppercase;
+      color: #171717;
+      text-decoration: none;
+      font-size: 2em;
+    }
+
+    div.coding:before {
+      content: "HEXXED.SH\000A-UNDER CONSTRUCTION-";
+      color: #6fe800;
+      position: absolute;
+      text-shadow: 0 0 3px #6fe800;
+      animation: encode 1s 1;
+    }
+
+    div.coding:hover:before {
+      animation: decode 1s 1;
+    }
+
+    @keyframes encode {
+      0% {
+        content: "\20B9 \03DE \20BE \03BE \2126 \2000 \03EA \03A3";
+        text-shadow: 0 0 6px #6fe800;
+      }
+
+      10% {
+        content: "\03BE \03F4 \03DE \03D1 \03A3 \2000 \03DE \03EA";
+      }
+
+      20% {
+        content: "\20BE \03BE \03DE \03EA \03D1 \2000 \2202 \03D1";
+      }
+
+      30% {
+        content: "\03DE \20BA \03A3 \03D1 \20BE \2000 \20BE \2202";
+      }
+
+      40% {
+        content: "H\0394 \20BA \03F4 \20BE \2000 \03A3 \20B9";
+      }
+
+      50% {
+        content: "HE\03F4 \03BE \03DE \2000 \03DE \20BA";
+      }
+
+      60% {
+        content: "HEX\03A3 \03D1 \0020 \20BE \2202";
+      }
+
+      70% {
+        content: "HEXX\0394 \0020 \03D1 \03EA";
+      }
+
+      80% {
+        content: "HEXXE \0020 \03EA \20BE";
+      }
+
+      90% {
+        content: "HEXXED. \03DE";
+        text-shadow: 0 0 6px #6fe800;
+      }
+
+      100% {
+        content: "HEXXED.SH";
+        text-shadow: 0 0 3px #6fe800;
+      }
+    }
+
+    @keyframes decode {
+      0% {
+        content: "\20B9 \03DE \20BE \03BE \2126 \2000 \03EA \03A3";
+        text-shadow: 0 0 6px #6fe800;
+      }
+
+      10% {
+        content: "\03BE \03F4 \03DE \03D1 \03A3 \2000 \03DE \03EA";
+      }
+
+      20% {
+        content: "\20BE \03BE \03DE \03EA \03D1 \2000 \2202 \03D1";
+      }
+
+      30% {
+        content: "\03DE \20BA \03A3 \03D1 \20BE \2000 \20BE \2202";
+      }
+
+      40% {
+        content: "H\0394 \20BA \03F4 \20BE \2000 \03A3 \20B9";
+      }
+
+      50% {
+        content: "HE\03F4 \03BE \03DE \2000 \03DE \20BA";
+      }
+
+      60% {
+        content: "HEX\03A3 \03D1 \0020 \20BE \2202";
+      }
+
+      70% {
+        content: "HEXX\0394 \0020 \03D1 \03EA";
+      }
+
+      80% {
+        content: "HEXXE \0020 \03EA \20BE";
+      }
+
+      90% {
+        content: "HEXXED \03DE";
+        text-shadow: 0 0 6px #6fe800;
+      }
+
+      100% {
+        content: "HEXXED.SH";
+        text-shadow: 0 0 3px #6fe800;
+      }
     }
 
   </style>
-  <script>
-    var container = $('#pagebod').get(0);
-    var textToWrite = '<center><h1>HEXXED.SH</h1>PAGE UNDER CONSTRUCTION</center>';
-    var i = 0;
-    var progress = 0;
-    var codingChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-
-    function animate() {
-      setTimeout(function() {
-        i++;
-        var currentText = textToWrite.substr(0, i);
-        currentText += getRandomChars(textToWrite.length - i);
-
-
-        container.innerHTML = currentText;
-        progress = i / textToWrite.length;
-
-        if (progress < 1) {
-          animate()
-        }
-      }, 100);
-    }
-
-    function getRandomChars(howMany) {
-      var result = '';
-
-      for (var i = 0; i < howMany; i++) {
-        if (i % 5 == 0) {
-          result += ' '
-        } else {
-          result += codingChars.charAt(Math.floor(Math.random() * codingChars.length));
-        }
-      }
-      return result
-    }
-
-    animate();
-  </script>
+  <div class="coding">HEXXED.SH</div>
 
 </html>
