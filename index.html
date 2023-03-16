@@ -1,37 +1,57 @@
 <html>
+  <div id="pagebod"></div>
+  <style>
+    @import url("https://fonts.googleapis.com/css?family=Press+Start+2P");
 
-  <body>
-    <style>
-      body 
-      {
-        background-color: Black;
-        color:green;
-        
+    body {
+      background-color: Black;
+      color: green;
+      font-family: "Press Start 2P";
+    }
+    }
+
+    #t {
+      width: 300px;
+    }
+
+  </style>
+  <script>
+    var container = $('#pagebod').get(0);
+    var textToWrite = '<center><h1>HEXXED.SH</h1>PAGE UNDER CONSTRUCTION</center>';
+    var i = 0;
+    var progress = 0;
+    var codingChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+
+    function animate() {
+      setTimeout(function() {
+        i++;
+        var currentText = textToWrite.substr(0, i);
+        currentText += getRandomChars(textToWrite.length - i);
+
+
+        container.innerHTML = currentText;
+        progress = i / textToWrite.length;
+
+        if (progress < 1) {
+          animate()
+        }
+      }, 100);
+    }
+
+    function getRandomChars(howMany) {
+      var result = '';
+
+      for (var i = 0; i < howMany; i++) {
+        if (i % 5 == 0) {
+          result += ' '
+        } else {
+          result += codingChars.charAt(Math.floor(Math.random() * codingChars.length));
+        }
       }
+      return result
+    }
 
-    </style>
-    <center>
-      <div style="display: inline-block; text-align: left;">
-        <pre>
-     ######
-     ######
-     ######
-     ######
-     ######
-     ######
-     ######
-     ######
-     ######
-     ######
-################
-################  
-################
-     ######
-     ######
-     ######   Internet enjoyers rejoice
-        </pre>
-      </div>
-    </center>
-  </body>
+    animate();
+  </script>
 
 </html>
